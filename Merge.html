@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivational & Location Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #location {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Motivational & GPS Page</h1>
+
+  <p>"The only way to achieve the impossible is to believe it is possible." - David Goggins</p>
+  <p>"असंभव को प्राप्त करने का एकमात्र तरीका यह है कि आप विश्वास करें कि यह संभव है।" - डेविड गॉगिंस</p>
+
+  <h2>Motivational Video</h2>
+  <iframe src="https://www.youtube.com/embed/O95MS5M-W0c?feature=shared" title="Motivational Video" allowfullscreen></iframe>
+
+  <h2>YouTube वीडियो देखें</h2>
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+
+  <h2>लोकेशन Access करें</h2>
+  <button onclick="getLocation()">लोकेशन Allow करें</button>
+  <p id="location"></p>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        document.getElementById("location").innerHTML = "Geolocation supported नहीं है।";
+      }
+    }
+
+    function showPosition(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      document.getElementById("location").innerHTML = "Latitude: " + lat + "<br>Longitude: " + lon;
+    }
+
+    function showError(error) {
+      alert("Location access नहीं मिली या user ने मना कर दिया।");
+    }
+  </script>
+
+</body>
+</html>
